@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * 正常情况下，我们想写两个构造函数men和woman需要写两次
+   *   function Man() {
+        this.head = 1
+        this.eyes = 2
+      }
+      function Woman() {
+        this.head = 1
+        this.eyes = 2
+      }
+  */
+  // 我们可以继续抽取，把公共的部分抽离成一个对象
+  const person = {
+    head: 1,
+    eyes: 2,
+  }
+  // 然后把公共部分继承到原型上
+  function Man() { }
+  Man.prototype = person
+  Man.prototype.constructor = Man
+  const man = new Man()
+  console.log(man.eyes)
+
+  function Woman() { }
+  Woman.prototype = person
+  const woman = new Woman()
+  console.log(woman)
+
+</script>
+
+</html>

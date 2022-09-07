@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * 如果一个实例使用了一个自身没有的方法，就会去构造函数的prototype属性寻找，还没有就会在往上走到Object，从Object的prototype找，如果Object还没有，就指向隐性null，防止死循环
+  */
+  const obj = { a: 1 }
+  console.log(obj.toString);
+</script>
+
+</html>
