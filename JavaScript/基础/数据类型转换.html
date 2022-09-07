@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.Number()
+        //     语法：Number(你要转换的值)
+        //     返回值：转换好的数据
+        //     特点：
+                    // 会把你要转换的内容当做一个整体来看
+                    // 能转换成数字的结果就是数字，不能转换的就是NaN
+
+        // var s1 = '100'
+        // console.log(s1)
+        // console.log(typeof(s1))
+        // console.log(typeof(Number(s1)))
+
+        /*
+            parseInt()
+                语法：parseInt(你要转换的数据)
+                返回值：转换好的数据
+                特点： 
+                    把你要转换的任何内容一位一位的看
+                    如果第一位就是不能转换的，直接给NaN
+                    如果第一位可以，就看第二位，第一位保留，以此类推
+                    以此类推，知道有不能转换的位置
+        */
+    //    var s2 = '100abc'
+    //    console.log(Number(s2)) //NaN
+    //    console.log(parseInt(s2)) //100
+
+    //    var s3 = true
+    //    console.log(Number(s3))  //1
+    //    console.log(parseInt(s3))   //NaN
+
+    //    var s4 = 3.14
+    //    console.log(Number(s4))  //3.14
+    //    console.log(parseInt(s4))  //3
+
+    /*
+        parseFloat()
+        语法：parseInt(你要转换的数据)
+                返回值：转换好的数据
+                特点： 
+                    认识小数点
+                    把你要转换的任何内容一位一位的看
+                    如果第一位就是不能转换的，直接给NaN
+                    如果第一位可以，就看第二位，第一位保留，以此类推
+                    以此类推，知道有不能转换的位置
+    */
+        // var s5 = 3.14
+        // console.log(parseFloat(s5))  //3.14
+
+        /*
+            取正负值
+                语法：+变量   -变量
+                返回值：转换好的数据
+                特点：
+                    会把你要转换的内容当做一个整体来看
+                    能转换成数字的结果就是数字，不能转换的就是NaN
+        */
+    //    var s6 = '100'
+    //    var res1 = -s6
+    //    var res2 = +s6
+    //    document.write(res1, res2)
+
+
+    // var s1 = '200'
+    // var res1 = s1 / 1
+    // var res2 = s1 * 1
+    // var res3 = s1 - 0
+    // console.log(res1, res2, res3)
+    // //200 200 200
+
+
+    /*
+        字符串
+            把其他数据类型转换成字符串类型
+                String()
+                    语法：String(要转换的数据)
+                    返回值：转换好的数据
+                    特点：
+                        任何数据类型都可以转换
+                toString()
+                    语法：toString(要转换的数据)
+                    返回值：转换好的数据
+                    特点：
+                       Undefined和Null不能转换
+    */
+//    var n1 = 100
+//    console.log(String(n1))  //100
+//    var s = String(n1)
+//    console.log(s)
+//    var q = n1.toString()
+//    console.log(q)
+
+    /*
+        加法运算
+        在JS里面，加号有两个意义
+            1.字符串拼接：
+            只要任意一边是字符串的时候就是字符串拼接
+            2.进行数学运算
+            只有两边都是数字或者布尔值的时候，会进行数学运算
+    */
+//    var n1 = 100
+//    var n2 = '200'
+//    var n3 = 200
+//    console.log(n1+n2) //100200
+//    console.log(typeof(n1+n2)) //String
+//    console.log(n1+n3) //300
+//    console.log(typeof(n1+n3)) //Number
+
+//1+2+‘3’+4
+// console.log(1+2+'3'+4)
+        // console.log(null == undefined);
+        // console.log("0"==0);
+        // console.log(0 == false);
+        // console.log("0" == false);
+
+        let a = 123
+        console.log(typeof(a+"1"))
+
+        let b = 
+        console.log(typeof(b+123))
+     </script>
+</body>
+</html>

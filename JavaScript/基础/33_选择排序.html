@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    	/*
+		选择排序
+			每次选择一个最小的放在前面
+
+		1.如何找到最小的数字索引
+			循环遍历数字
+			假设数组[0]位置最小
+			如果那个数字比[0]还小，就用该数字的索引替换调[0]索引，就找到了一个最小数字的索引
+			假设的索引是0，找到的最小的是2，所以让0 和 2交换位置
+    	*/
+    	let arr = [3,2,1,6,5,4,7,9,8];
+
+		for (let a = 0; a < arr.length - 1; a++) {
+			let minIndex = a  //假设的是索引
+			for (let i = a + 1; i < arr.length; i++) {
+				if (arr[i] < arr[minIndex]) {
+					minIndex = i
+					}
+			}
+			let temp = arr[a]
+			arr[a] = arr[minIndex]
+			arr[minIndex] = temp
+		}
+		console.log(arr)
+    </script>
+</head>
+<body>
+</body>
+
+</html>

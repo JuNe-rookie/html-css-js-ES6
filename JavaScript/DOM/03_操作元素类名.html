@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素类名</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+      div.box {
+        background-color: pink;
+      }
+    </style>
+</head>
+<body>
+        <!--
+        操作元素类名
+            1.按照原生属性操作
+                设置类名
+                 元素.className = 'box'
+                修改类名
+                 元素.className = '新值'
+                追加类名
+                 元素.className = 元素.className + '新类名'
+                    注意：新类名前面要有一个 空格
+                删除类名
+                 获取类名
+                 截取字符串
+                 按照空格切开，循环遍历，找到想删除的删除
+                 在写一遍
+    -->
+    <!--
+        H5标准提供的API
+        元素身上有一个属性叫classList
+        里面包含了所有元素身上设置的类名
+        这个方法提供了一系列方法来操作
+            add()
+              语法：元素.classList.add('你要添加的类名')
+            remove()
+              语法：元素.classList.remove('你要删除的类名')
+            toggle()
+              语法：元素.classList.toggle('你要切换的类名')
+                当元素有这个类名的时候，就删除
+                当元素没有这个类名的时候，就添加
+    -->
+    <button>改变颜色</button>
+    <div class="box">我是div标签</div>
+
+</body>
+<script>
+  // 点击按钮的时候，如果div有class='box'就删除（显示蓝色），如果没有就添加（显示粉色）
+  let div = document.querySelector('div')
+  let btn = document.querySelector('button')
+  btn.onclick = function() {
+    div.classList.toggle('box')
+  }
+    // let div = document.querySelector('div')
+    // // 设置类名
+    // div.className = 'box'
+    // console.log(div)
+    // // 修改类名
+    // div.className = 'box1'
+    // console.log(div) 
+    // // 追加类名
+    // div.className += ' abc'
+    // // 修改：重写
+    // div.className = 'ABC'
+    // console.log(div)
+
+
+    // // H5 方式操作类名
+    // console.log(div.classList)
+    // // 添加类名
+    // div.classList.add('box')
+    // console.log(div)
+    // // 删除类名
+    // div.classList.remove('box')
+    // console.log(div)
+    // // 切换类名
+    // div.classList.toggle('box')
+    // console.log(div)
+    // div.classList.toggle('box')
+    // console.log(div)
+</script>
+</html>

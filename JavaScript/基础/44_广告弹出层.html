@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广告弹出层</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        border: 1px solid #333;
+        display: none;
+    }
+</style>
+<body>
+<div id="ad">
+    <button id="btn">X</button>
+    <h3>哎！我是个广告</h3>
+    <p>
+        但是你就是关不掉<br>
+        你关了我还能回来
+    </p>
+</div>
+</body>
+<script>
+    let box = document.getElementById('ad')
+    setTimeout(function (){
+        box.style.display = 'block'
+
+    }, 1000 * Math.random() * 3)
+
+    let btn = document.getElementById('btn')
+    btn.onclick = function () {
+        box.style.display = 'none'
+        setTimeout(function (){
+            box.style.display = 'block'
+
+        }, 1000 * Math.random() * 3)
+    }
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作元素样式</title>
+    <style>
+        div {
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 200px" id="box">
+
+</div>
+
+</body>
+<script>
+    /*
+    * 操作元素样式
+    *   样式的两种
+    *       行内样式
+    *       非行内样式
+    *   获取元素的样式
+    *       style的方式
+    *           利用原生属性的方式
+    *           元素.style
+    *           获取到的内容是一个对象，里面包含元素所有可设置样式
+    *           你想获取哪一个样式的值，就从对象里面获取就可以了
+    *           **只能获取行内样式**
+    *       获取非行内样式
+    *           1.windows.getComputedStyle()
+    *               标准浏览器
+    *               语法：windows.getComputedStyle(要获取样式的元素)
+    *               返回值：一个对象，里面包括所有可以设置的样式，没有设置的有默认值
+    *               需要哪个样式，直接在对象里面访问就可以
+    *               **点语法下，如果要方位的样式有 -  需要写成驼峰形式    console.log(style.backgroundColor)
+    *               **如果使用数组关联语法， 贼可以使用 -     console.log(style['background-color'])
+    *           2.currentStyle
+    *               IE低版本
+    *       扩展：短路表达式
+    *           什么情况使用
+    *               方法或者属性执行没有问题，只是拿不到值的时候
+    * */
+
+    let div = document.querySelector('div')
+    console.log(div.style)
+    console.log(div.style.width)
+
+    let div1 = document.getElementById('box')
+    let style = window.getComputedStyle(div1)
+    console.log(style['background-color'])
+</script>
+</html>

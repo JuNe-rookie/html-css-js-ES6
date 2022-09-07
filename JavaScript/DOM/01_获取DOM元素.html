@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取DOM元素</title>
+</head>
+<body>
+<button id="btn"></button>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+
+<ul>
+    <li class="box">1</li>
+    <li class="box">2</li>
+    <li class="box">3</li>
+    <li class="box">4</li>
+    <li class="box">5</li>
+    <li class="box">6</li>
+    <li class="box">7</li>
+    <li class="box">8</li>
+    <li class="box">9</li>
+    <li class="box">0</li>
+</ul>
+    <input type="text" name="username" id="">
+</body>
+<script>
+    /*
+    DOM Document Object Model 文档对象
+        可以操作元素HTML元素
+        操作元素样式
+        操作元素属性
+        操作元素添加属性
+
+    获取DOM元素
+        通过JS获取到页面中的元素，进行操作
+        两类标签
+            1.非常规标签
+             1-1 html
+                 document.doucmentElemennt
+             1-2 head
+                 document.head
+             1-3 body
+                 document.body
+            2.常规标签
+                不是不能获取非常规标签，只是一般不这么用
+                 2-1 getElementById()
+                    查找范围.getElementById('id名称')
+                    返回值：
+                        有匹配就返回id名匹配的元素
+                        没有就返回null
+                 2-2 getElementsByTagName
+                    查找范围.getElementsByTagName('标签名')
+                    返回值：
+                        伪数组
+                        如果有这标签匹配的元素，有多少获取多少
+                        没有返回一个[null]
+                    如果想拿到某个准确的标签，要么遍历，要么使用索引
+                 2-3 getElementsByClassName
+                    查找范围.getElementsByClassName('类名')
+                    返回值：
+                        伪数组
+                        如果有这标签匹配的元素，有多少获取多少
+                        没有返回一个[null]
+                    如果想拿到某个准确的标签，要么遍历，要么使用索引
+                 2-4 getElementsByName
+                    查找范围.getElementsByName('元素name属性的值 ')
+                    返回值：
+                        一个伪数组
+                        如果有元素的name属性的值匹配，有多少获取多少
+                        如果没有元素的name属性值匹配，就是空的伪数组
+                 2-5 querySelector
+                    语法：查找范围.querySelector('选择器')
+                         能在css写的选择器，这里都能写
+                    返回值:
+                        如果找到元素，返回第一个元素
+                        找不到，返回null
+                 2-6 querySelectorAll('选择器')
+                    语法：查找返回.querySelectorAll('选择器')
+                    返回值：一个伪数组
+                        如果找到匹配的元素，有多少获取多少
+                        找不到，返回一个空的伪数组
+
+    */
+   let btn = document.getElementById('btn')
+   console.log(btn)
+
+   let targ = document.getElementsByTagName('p')
+   console.log(targ)
+
+   let box = document.getElementsByClassName('box')
+   console.log(box)
+   console.log(document.getElementsByName('username'))
+   console.log(document.querySelectorAll('.box'))
+</script>
+</html>

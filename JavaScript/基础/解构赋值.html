@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>解构赋值</title>
+	<script>
+		let [x,y] = [1,2]; //相当于let x = 1; let y = 2
+		[x,y] = [x+1,y+1]; //相当于x=x+1;y=y+1
+		[x,y] = [y,x]; //x和y互换位置
+		// console.log(x);
+		// console.log(y);
+		function toPolar(x,y){
+			return [Math.sqrt(x*x+y*y),Math.atan(y,x)]
+		}
+		console.log(toPolar(1,2))
+
+		let o = {x:1,y:2};
+		for(const[name,value] of Object.entries(o)){//该Object.entries()方法返回给定对象自己的可枚举字符串键属性 [key, value]对的数组
+			console.log(name,value);
+		}
+
+		var [a,b] = [1]
+		console.log(a)  //1
+		console.log(b)  //undefined
+		var [a,b] = [1,2,3]
+		console.log(a)  //1
+		console.log(b)  //2
+		var [,a,b] = [1,2,3,4]
+		console.log(a)  //2
+		console.log(b)  //3
+
+		let [n,...m] = [1,2,3,4,5]
+		document.write(n,m)  //1 [2,3,4,5]
+
+		let [first,...second] = "hello"
+		console.log(first,second) //first=h   second=["e","l","l","o"]
+	</script>	
+</head>
+<body>
+	
+</body>
+</html>

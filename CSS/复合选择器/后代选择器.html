@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后代选择器</title>
+</head>
+<style>
+    ol li{
+        color: pink;
+    }
+    ul li a{
+        color: green;
+    }
+    #nav li a{
+        background-color: aqua;
+    }
+</style>
+<body>
+<ol id="nav">
+    <li>ol下</li>
+    <li>ol下</li>
+    <li>ol下</li>
+    <li><a href="#">不会变化</a></li>
+</ol>
+<ul>
+    <li>ul下</li>
+    <li>ul下</li>
+    <li>ul下</li>
+    <li><a href="#">孙子级别，会变化</a></li>
+</ul>
+</body>
+</html>

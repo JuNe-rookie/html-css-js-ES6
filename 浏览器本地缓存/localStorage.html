@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>localStorage</title>
+</head>
+<body>
+  <h2>localStorage</h2>
+  <button onclick="saveDate()">点击保存数据</button>
+  <button onclick="readDate()">点击读取数据</button>
+  <button onclick="deleteDate()">点击删除数据</button>
+</body>
+<script>
+  /*
+  关闭浏览器数据也不会清除
+  */
+  function saveDate(){
+    let person = {name:'张三', age:18}
+    localStorage.setItem('personInfo', JSON.stringify(person))
+  }
+  function readDate(){
+    const resule = localStorage.getItem("personInfo")
+    console.log(JSON.parse(resule))
+  }
+  function deleteDate(){
+    localStorage.removeItem("personInfo")
+  }
+</script>
+</html>

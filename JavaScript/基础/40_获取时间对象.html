@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取时间对象</title>
+</head>
+<body>
+<script>
+    /*
+    * 时间对象
+    *   JS里面有一个内置构造函数叫Date()
+    *   语法：let time = new Date()
+    *   返回值：当前终端的时间
+    *
+    * 可以创建一个指定日期的时间对象
+    *   通过传递参数的方式获得
+    *       1.传递数字
+    *           至少传递两个参数，一个参数的时候获取格林威治时间
+    *           月：0表示一月，11表示12月
+    *       2.传递字符串
+    *           'yyyy-mm-dd HH:MM:SS'
+    *           'yyyy/mm/dd HH:MM:SS'
+    * */
+    let time = new Date(2021, 2)
+    console.log(time)
+
+    let time1 = new Date('2021-12-12 12:13:14')
+    let time2 = new Date('2021/12/12 12:13:14')
+    console.log(time1)
+    console.log(time2)
+</script>
+</body>
+</html>

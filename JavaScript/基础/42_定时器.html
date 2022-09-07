@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+<script>
+    /*
+    * JS是同步编程
+    * JS提供了两个异步定时器机制
+    * 1.setTimeout()
+    *   setTimeout(函数, 时间)
+    *   时间到达的时候，执行一遍就结束了
+    *   延时定时器（炸弹定时器）
+    * 2.setInterval()
+    *   setInterval(函数, 时间)
+    *   每间隔一段时间，执行一次函数
+    *   间隔定时器
+    * */
+
+    // 定时器异步
+    setTimeout(function (){
+        console.log("我执行了")
+    }, 1000)
+
+    // 强制等待
+    let sleep = function (time){
+        let timeOut = new Date().getTime() + parseInt(time, 10)
+        while (new Date().getTime() <= timeOut){}
+    }
+    sleep(1000)
+    console.log("执行了")
+
+
+    // 间隔定时器
+    setInterval(function fn(){
+        console.log("间隔定时器")
+    }, 1000)
+
+
+
+</script>
+</body>
+</html>

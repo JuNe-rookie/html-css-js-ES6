@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环遍历对象</title>
+    <script>
+        /*
+        * 遍历对象
+        *   成员名可以访问到对象里面的每一个数据
+        *   所有的名字不一定有规律
+        *
+        * for in语法：
+        *   大部分时间用来遍历对象
+        *   语法：
+        *       for (let 变量 in 对象){
+        *           代码段
+        *   }
+        *   循环的每一次key分别是成员的名称（字符串类型）
+        *   就可以利用key和数字关联语法来获取每一个成员的值
+        * */
+
+        let obj = {
+            name : 'jack',
+            sex : 'man',
+            age : 23,
+            source : 100
+        }
+        //for in遍历对象
+        for(let key in obj){
+            console.log(key+'我执行了')
+            console.log(typeof(key))
+            //当key == ‘name’的时候，就是obj['name']
+            //当key == ‘age’的时候就是obj['age']
+            console.log(obj[key])
+        }
+
+        console.log("================")
+        /*
+        * 判断一个成员是不是在这个对象里面
+        *   使用in语法
+        *   成员名 in 对象名
+        * */
+        let obj1 = {
+            name : 'jack',
+            sex : 'man'
+        }
+        console.log('name' in obj1)
+        /*
+        * 扩展
+        *   window的name属性
+        *       是一个全局自带的属性
+        *       作用：在iframe标签和name属性合作进行跨域的
+        *       特点：被固定为字符串类型
+        *           不管给name赋值什么属性，都会被转换为字符串
+        * */
+        name = 100
+        console.log(typeof name)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

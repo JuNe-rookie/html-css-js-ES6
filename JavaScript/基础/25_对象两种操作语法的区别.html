@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象两种操作语法的区别</title>
+    <script>
+        /*
+        对象两种操作语法的区别:
+            点语法：
+             不能使用变量
+             不能拼接字符串
+             点的后面是什么，成员名称就是什么
+            数组关联语法：
+             可以使用变量
+             可以拼接字符串
+        */
+
+        let obj = {}
+        let name = 'abc'
+        //添加一个叫name的成员
+        //添加一个叫name的成员，和name变量没有任何关系
+        obj.name = 'jack'
+        //添加一个叫做age的成员
+        obj['age'] = 23
+
+        //当括号中书写一个变量的时候
+        //会把变量当做这个成员变量名称
+        //因为name的变量值是“abc”
+        //下面代码等价于 obj['abc']
+        obj[name] = 'hello world'
+
+        for(let i=1;i<=100;i++){
+            obj['o'+i] = i
+        }
+    
+        console.log(obj)
+        //变量使用，是要使用age的值来当做obj的一个成员名称
+        obj[age] = 20
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取时间对象信息的方法</title>
+</head>
+<body>
+<script>
+    /*
+    * JS内部提供一些方法专门用来提取时间对线内部信息
+    * 1.时间对象.getFullYear()
+    *   获取对象的年份信息
+    * 2.时间对象.getMonth()
+    *   获取对象的月份信息
+    * 3.时间对象.getDate()
+    *   获取对象的月份信息
+    * 4.时间对象.getHours()
+    *   获取对象的小时信息
+    * 5.时间对象.getMinutes()
+    * 6.时间对象.getSeconds()
+    * 7.时间对象.getMilliseconds()
+    * */
+
+    // 获取时间对象
+    let time = new Date()
+    let year = time.getFullYear()
+    console.log(year)
+    let month = time.getMonth()
+    console.log(month)
+    let date = time.getDate()
+    console.log(date)
+    let hours = time.getHours()
+    console.log(hours)
+    let minutes = time.getMinutes()
+    console.log(minutes)
+    let seconds = time.getSeconds()
+    console.log(seconds)
+    let mllisecond = time.getMilliseconds()
+    console.log(mllisecond)
+</script>
+</body>
+</html>

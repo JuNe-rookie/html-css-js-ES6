@@ -1,0 +1,35 @@
+.info-show{
+    width: 750px;
+    padding: 20px;
+    /*border: 1px solid #cac6c6;*/
+    outline: ridge #bcbbbb;
+}
+.info-show:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.head-sculpture{
+    margin-right: 30px;
+    float: left;
+}
+.photo{
+    height: 200px;
+    width: 200px;
+    background-color: #bcbbbb;
+    text-align: center;
+    line-height: 200px;
+    border: 1px solid #cac6c6;
+    border-radius: 5px;
+}
+.txt{
+    padding: 20px;
+    text-align: center;
+}
+.description{
+    border: 1px dashed #cac6c6;
+    height: 200px;
+    width: 450px;
+    float: left;
+    padding: 20px 0 0 10px;
+}

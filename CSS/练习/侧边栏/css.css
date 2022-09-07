@@ -1,0 +1,74 @@
+body{
+    padding:0 100px;
+}
+
+/*顶部导航栏 calss="nav"*/
+.nav{
+    background-color: rgb(87, 85, 85);
+    width: 100%;
+    float: left;
+}
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 9%;
+    margin:0 0 0 7px;
+    text-align: center;
+}
+.nav a:hover{
+    color: orange;
+}
+
+/*icon*/
+.top-icon{
+    float: left;
+    margin: 0 200px 0 0;
+}
+/*icon左侧导航栏  class="top-info"*/
+.top-info{
+    height: 50px;
+    width: 75%;
+    /* text-align: center; */
+    padding: 20px 0 0 0;
+    display: inline-block;
+}
+/* .top::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
+.top-info a{
+    /* border: 1px solid #555555; */
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    float: left;
+    width: 16%;
+}
+.top-info .top1{
+    margin: 0 0 0 35px;
+}
+.top-info a:hover{
+    color: orange;
+}
+
+
+/*左侧导航栏  class="box-left"*/
+.box-left{
+    height: 500px;
+    width: 274px;
+}
+.box-left>a{
+    width: 234px;
+    text-decoration: none;
+    color: #dddddd;
+    display: block;
+    background-color: #555555;
+    padding-left: 30px;
+    line-height: 50px;   /*行高等于盒子总高度会垂直居中，超过会偏下，小于会偏上*/
+}
+.box-left>a:hover{
+    background-color: orange;
+}

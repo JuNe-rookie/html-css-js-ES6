@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        “==”叫做相等运算符
+            只判断等号两边的值是否相等，而不判断类型是否相同。值相同则返回 true
+        “===”严格运算符
+            既要判断值是否相等，也要判断类型是否相同，即全等才能返回 true
+        */
+        console.log(null == undefined);
+        console.log("1"==0);
+        console.log(0 == false);
+        console.log("0" == false);
+
+        /*
+        "!="与“==”相同，叫做不等运算符
+            只判断两边是否不相等，而不判断类型，不相等则返回true
+        “!==”与"==="不相同，叫做严格不等运算符
+            既要判断值是否不相等，也要判断类型是否不相同，即全不等才能返回 true
+        */
+
+        console.log(null != undefined)
+        console.log("1" != 1)
+    </script>
+</body>
+</html>

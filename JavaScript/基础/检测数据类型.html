@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            检测数据类型
+                运算过程中，有的数据不是我们自己写的
+                有可能是别人给的
+
+            关键字：typeof
+                两种用法：
+                    typeof 变量（只能检测紧跟的一个变量）
+                        语法：typeof 要检测的变量
+                        返回值：以字符串形式返回数据类型
+
+                    typeof(变量)
+            typeof只能检测基本数据类型
+                    数值：number
+                    字符串：string
+                    布尔值：boolean
+                    undefined：UNdefined
+                    null：object
+        */
+        var a = 100
+        var res = typeof a
+        console.log(res)
+
+        console.log(typeof(a))
+        
+        //typeof()计算顺序是从右往左
+        console.log(typeof(typeof(a)))
+        //输出结果是string
+    </script>
+</body>
+</html>

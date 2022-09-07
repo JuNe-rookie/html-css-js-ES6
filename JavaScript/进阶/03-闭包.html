@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+	// 常见闭包形式：外部可以访问函数内部变量
+	// function outer() {
+	//   let a = 10
+	//   function inner() {
+	//     console.log(a);
+	//   }
+	//   return inner // return出去
+	// }
+
+	// // outer() === inner === function inner(){}
+
+	// const fn = outer() // const fn = function inner(){}
+	// fn()
+
+
+
+	// 常见闭包形式：外部可以访问函数内部变量
+	// function outer() {
+	//   let a = 10
+	//   return function () {
+	//     console.log(a)
+	//   }
+	// }
+	// const fn = outer()
+	// fn()
+
+	/**
+	 * 如下代码功能是统计i被调用多少次，但是全局变量i很容易被篡改，就可以写成闭包，让i变成私有变量：
+	 * 	let i = 0
+			function fn() {
+				i++
+				console.log(`i被调用了${i}`)
+			}
+	 *
+	*/
+
+	function fn() {
+		let i = 0
+		return function () {
+			i++
+			console.log(`i被调用了${i}`)
+		}
+	}
+	let fun = fn()
+
+
+</script>
+
+</html>

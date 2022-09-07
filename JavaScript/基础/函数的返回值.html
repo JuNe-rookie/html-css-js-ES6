@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的返回值</title>
+    <script>
+        /*
+         return
+            一个函数的返回值
+            在函数内部使用return关键字
+            返回的是执行过的结果
+        */
+
+        function fn(){
+            let sum = 0;
+            for(let i=0;i<arguments.length;i++){
+                sum += arguments[i]
+            }
+            return sum
+        }
+        let res = fn(10,20)
+        console.log(res)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=、, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            了解函数
+                一个JS里面的数据类型
+                是复杂数据类型的一种
+            
+            在JS里面
+                函数就相当于一个盒子
+                用来承载一段代码，当你需要执行这一段代码的时候，只要调用该盒子就可以 
+                对一段代码得封装
+
+            过程：
+                1.把代码装在盒子里面（定义函数）
+                    声明式：function 函数名(){}
+                    赋值式：var 函数名 = function(){}
+                2.使用盒子里面的代码（调用函数）
+                    函数名()
+            
+            特点：
+                代码复用
+                想什么时候使用就什么时候使用
+                代码简洁
+        */
+
+        //1.声明式函数
+        function fn(){
+            console.log("这是fn函数里面的代码")
+        }
+
+        //2.赋值式函数
+        var fun=function(){
+            console.log("这是fun函数里面的代码")
+        }
+
+        //调用函数
+        fn()
+        fun()
+        console.log(fn)
+        console.log(fn())
+        
+    </script>
+</body>
+</html>

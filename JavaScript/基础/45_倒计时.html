@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 65px;
+        padding: 20px;
+        border: 2px solid #333;
+        line-height: 40px;
+        margin: 0 auto;
+    }
+
+    .box p {
+        line-height: 30px;
+        display: inline-block;
+        width: 40px;
+        background-color: gray;
+        font-size: 20px;
+    }
+</style>
+<body style="text-align: center">
+<h2 id="h2">距离发工资还有：</h2>
+<div class="box" id="box1">
+    <p id="dayBox">XX</p>天
+    <p id="hourBox">XX</p>时
+    <p id="minuteBox">XX</p>分
+    <p id="sBox">XX</p>秒
+</div>
+</body>
+<script>
+    let target = new Date("2022/01/01 12:30:00")
+    function endDate() {
+        let nowDate = new Date()
+        // console.log(now)
+        let diffDate = target.getTime() - nowDate.getTime()
+        let dayMs = 24 * 60 * 60 * 1000;
+        let floatDay;
+        let intDay = Math.floor(floatDay = diffDate / dayMs);
+        if (intDay < 10) {
+            intDay = "0" + intDay
+        }
+
+        let floatHours;
+        let intHours = Math.floor(floatHours = (floatDay - intDay) * 24);
+        if (intHours < 10) {
+            intHours = "0" + intHours
+        }
+
+        let floatMinute;
+        let intMinute = Math.floor(floatMinute = (floatHours - intHours) * 60);
+        if (intMinute < 10) {
+            intMinute = "0" + intMinute
+        }
+
+        let intS = Math.floor((floatMinute - intMinute) * 60);
+        if( intS < 10) {
+            intS = "0"+ intS
+        }
+        if (intDay > 0) {
+            document.getElementById("dayBox").innerText = intDay.toString()
+            document.getElementById("hourBox").innerText = intHours.toString()
+            document.getElementById("minuteBox").innerText = intMinute.toString()
+            document.getElementById("sBox").innerText = intS.toString()
+        }
+        else {
+            document.getElementById("h2").innerText = "ended"
+            document.getElementById("box1").style.display = "none"
+        }
+    }
+    endDate()
+    setInterval(endDate, 1000)
+</script>
+</html>

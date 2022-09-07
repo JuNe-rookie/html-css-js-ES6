@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            区别：
+                声明式函数可以在声明前调用
+                赋值式不可以在声明前调用
+        */
+
+        // 声明式
+        // 声明前调用
+        fn()
+        function fn(){
+            console.log("这是fn()函数的代码")
+        }
+        //声明后调用
+        fn()
+        
+
+        //赋值式
+        //先调用
+        //fun() //报错：Uncaught TypeError: fun is not a function
+        var fun = function(){
+            console.log("这是fun代码")
+        }
+        //后调用
+        fun()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        border: 2px solid #333;
+        line-height: 40px;
+        margin: 0 auto;
+    }
+
+    .box p {
+        line-height: 30px;
+        display: inline-block;
+        width: 40px;
+        background-color: gray;
+        font-size: 20px;
+    }
+</style>
+<body style="text-align: center;">
+    <h3>计算</h3>
+    <div class="box">
+        上次交水费交了<p id="month">XX</p>个月</br>
+        所有人每个月应该交水费<p id="money">XX</p>钱</br>
+        每个人每个月应该交<p id="ownMoney">XX</p>元
+    </div>
+</body>
+<script>
+
+    let startDate = new Date('2019/11/01 0:00:00')  //2019.11开始
+    let endDate = new Date('2021/07/01 0:00:00')    //2021.07结束
+    different = endDate.getTime() - startDate.getTime()
+    differentMonth = parseInt(different / 2629800000)
+    let allMoeny = 1285
+    let money = Math.ceil(allMoeny / differentMonth) 
+    let ownMoney = money / 4
+    setInterval(function() {
+        document.getElementById("month").innerText = differentMonth
+        document.getElementById("money").innerText = money
+        document.getElementById("ownMoney").innerText = ownMoney
+    }, 1000)
+</script>
+</html>

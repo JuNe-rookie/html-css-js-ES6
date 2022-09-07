@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function runtime() {
+            //初始时间，日/月/年 时:分:秒
+            startTime = new Date("1/09/2021 24:00:00");
+            nowTime = new Date();
+            diffencetTime = (nowTime.getTime() - startTime.getTime());
+            dayMs = 24 * 60 * 60 * 1000;
+            intDay = Math.floor(floatDay = diffencetTime / dayMs);
+            intHours = Math.floor(floatHours = (floatDay - intDay) * 24);
+            intMinute = Math.floor(floatMinute = (floatHours - intHours) * 60);
+            intS = Math.floor((floatMinute - intMinute) * 60);
+            //信息写入到DIV中
+            document.getElementById("innerHTML").innerText = "本站已运行: " + 
+            intDay + "天" + intHours + "小时" + intMinute + "分" + intS + "秒"
+        }
+        setInterval(runtime, 1000);
+    </script>
+</head>
+<body>
+<div>
+    <h1 id="innerHTML"></h1>
+</div>
+</body>
+</html>

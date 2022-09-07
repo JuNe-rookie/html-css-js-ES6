@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地缓存</title>
+</head>
+<body>
+<script>
+    /*localStorage  永久缓存，除非手动删除
+    * sessionStorage  会话缓存，关闭浏览器就消失
+    *
+    * 特点：
+    *   只能存储字符串格式的数据
+    *   想存储对象数据结构，转换成json格式存储
+    *
+    * 查看：
+    *   控制台
+    *   application
+    *
+    * 语法：
+    *   1.localStorage
+    *       localStorage.setItem('名字', '值')
+    *           存储一条数据
+    *       localStorage.getItem('名字')
+    *           获取一条数据
+    *
+    * */
+    let obj = {name: "jack"}
+    localStorage.setItem('obj', JSON.stringify(obj))
+
+    let res = localStorage.getItem('name')
+    console.log(res)
+
+    console.log(Math.random())
+</script>
+</body>
+</html>

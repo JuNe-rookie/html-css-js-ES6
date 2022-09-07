@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数也是一个对象</title>
+    <script>
+        /*
+        * 函数也是对象
+        *   函数是保存一段代码
+        *   对象是保存一段数据
+        *   函数本身也是一个对象，可以保存一顿数据
+        *   函数的存储空间
+        *
+        *
+        * 函数
+        *   函数有两个功能
+        *       1.函数名()
+        *         把函数单做一个函数来执行掉
+        *       2.函数名.成员名 = ‘值’
+        *         储存一些数据
+        *       两个功能互相不干扰
+        * */
+        // function fn(){
+        //     console.log(123)
+        // }
+        // fn.sex = 'man'
+        // fn['age'] = 20
+        // console.dir(fn)
+
+
+
+        function fn(){
+            console.log(123)
+
+            //访问的是age变量
+            //是栈内存中的age成员
+            //现在栈里面没有age这个变量，只有fn这个变量，指向一个存储空间
+            //在这个存储空间内才有age成员
+            //正确调用为：fn.age
+            console.log(fn.age)//会报错:age is not defined
+        }
+        fn.age = 18
+        fn['gender'] = '男'
+        fn()
+    </script>
+</head>
+<body>
+
+</body>
+</html>

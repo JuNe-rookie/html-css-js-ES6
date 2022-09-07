@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-定位</title>
+    <style>
+        body{
+            height: 10000px;
+            background-color: #dddddd;
+        }
+        div{
+            border: 1px solid red;
+            width: 50%;
+        }
+        #static{
+
+        }
+        #relative{
+            position: relative;
+            border: 1px dashed burlywood;
+            left: 20px;
+        }
+        #fixed{
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border: 2px dashed green;
+            /*右下角*/
+            bottom: 0;
+            right: 0;
+        }
+        #absolute{
+            top: 80px;
+            right: 0;
+            width: 100px;
+            height: 120px;
+            position: absolute;
+            border: 2px solid pink;
+        }
+        #sticky{
+            position: -webkit-sticky; /*适用于早期Safari和IE*/
+            position: sticky;
+            top: 0;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="static">
+        这div元素是正常位置
+    </div>
+    <div id="relative">
+        这个div元素是position: relative
+    </div>
+    <div id="fixed">
+        这个元素是position: fixed
+        <div id="absolute">
+            这个元素是position: absolute
+        </div>
+    </div>
+    <div id="sticky">
+        这个有粘性
+    </div>
+</body>
+</html>

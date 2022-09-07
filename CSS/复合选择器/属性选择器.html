@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style>
+        .content[title]{
+            font-weight: bold;
+            color: red;
+        }
+        input[name=usr]{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div class="content" title="内容">内容1</div>
+<div class="content">内容2</div>
+
+<form action="#">
+    <input type="text" name="account">
+    <input type="text" name="usr">
+</form>
+</body>
+</html>

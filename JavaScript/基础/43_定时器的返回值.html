@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器的返回值</title>
+</head>
+<body>
+<button id="btn1">点击关闭延时定时器</button>
+<button id="btn2">点击关闭间隔定时器</button>
+</body>
+<script>
+    /*
+    * 定时器的返回值
+    *   不分定时器种类
+    *   只表示你页面中的第一个定时器
+    * 作用：
+    *   关闭定时器的使用
+    *   语法：
+    *       1.clearInterval(要关闭的定时器的返回值)
+    *       2.clearTimeout(要关闭的定时器的返回值)
+    * 关闭定时器不分种类
+    * */
+    let time1 = setTimeout(function () {
+        console.log('timeout')
+    }, 1000)
+    let time2 = setInterval(function () {
+        console.log('interval')
+    }, 1000)
+
+    let btn1= document.getElementById('btn1')
+    btn1.onclick = function (){
+        clearTimeout(time1)
+    }
+
+    let btn2 = document.getElementById('btn2')
+    btn2.onclick = function (){
+        clearInterval(time2)
+    }
+</script>
+</html>

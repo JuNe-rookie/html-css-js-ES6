@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型赋值的区别</title>
+    <script>
+        /*
+        * 数据类型赋值的区别
+        *   1.基本数据类型
+        *       就是把变量存储的值直接赋给了另一个变量
+        *       赋值后两个变量就没有关系了
+        *   2.复杂数据类型
+        *       因为复杂数据类型遍历存储的是地址
+        *       赋值的时候，实际上是把一个变量的地址给了另一个变量
+        *       赋值过后，两个变量操作一个空间
+        *   3.函数的实参和形参的关系
+        *       实参就是在函数调用时候给形参赋值
+        *       实参和形参的交互，和变量赋值事一个道理
+        *   4.函数的返回值也是变量赋值的一种
+        *       返回值是把函数内部的数据return出去
+        *       在函数外面有一个变量接收
+        * */
+
+        //基本数据类型
+        // let a = 10
+        // let b = a
+        // a = 20
+        // console.log(a)
+        // console.log(b)
+
+        //复杂数据类型
+        // let o1 = {
+        //     name : 'Jack',
+        //     age : 23
+        // }
+        // let o2 = o1
+        // //通过o1改变地址中的数据
+        // o1.name = 'June'
+        // console.log(o2)
+
+        //参数的交互
+        // function fn(a,b){
+            //因为是基本数据类型
+            //形参a和全局num没有关系
+            //修改的只是形参a，没有修改num
+            // a = 200
+
+            //因为是复杂数据类型
+            //形参b和全局obj指向同一个对象空间
+            //使用b取空间里面修改数据，全局obj空间里的数据也会被修改
+        //     b.name = 'June'
+        //
+        // }
+        // let num = 100
+        // let obj ={
+        //     name : 'Jack',
+        //     age : 23
+        // }
+        //调用函数给a和b赋值
+        //a赋值的是基本数据类型
+        //b赋值的是复杂数据类型
+        // fn(num,obj)
+        // console.log(num)
+        // console.log(obj)
+
+        //4.函数返回值的交互
+        function fn(){
+            let a = 100
+            let obj = {
+                name : 'Jack',
+                age : 23
+            }
+            return obj
+        }
+        //res接收到的是fn函数中的obj的地址
+        let res = fn()
+        console.log(res)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

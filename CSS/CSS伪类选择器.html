@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS伪类选择器</title>
+    <style>
+        input:focus{
+            outline:1px solid red;
+            border-radius: 1px;
+        }
+        ul li:first-child{
+            color: #555555;
+        }
+        ul li:last-child{
+            color: red;
+        }
+        ul li:nth-child(3){
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <p>点击搜索</p>
+    <input type="text">
+    <ul>
+        <li>AAAI</li>
+        <li>AAAI</li>
+        <li>aaaa1</li>
+        <li>AAAI</li>
+        <li>AAAI</li>
+        <li>AAAI</li>
+    </ul>
+</body>
+</html>

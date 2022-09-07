@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        JS的变量
+            在一段程序的运行中，保存一个中间值使用的
+            例子：
+            =>我要计算1*2*3
+            =>我要计算1*2*3*4的时候
+            =>我可以提前把1*2*3的结果记录下来
+            例子：
+            =>使用一个变量记录一个文本
+
+        JS定义变量
+            语法：var 变量名 = 值
+            =>var 定义变量的关键字
+            =>空格  分隔变量名和关键字，必须有
+            =>变量名  在JS里面 等于号是赋值的意思，把右边的内容给到左边的变量名
+            =>值  你定义的变量代表的内容
+
+        特点：
+            1.一个变量只能给一个值
+                =>当你再次给这个变量赋值的时候，第一个值就被覆盖了
+            2.一个变量如果你想让其保存多个数据
+                =>从原则上来说是不可以的，但是某些数据类型可以
+            3.没有var关键字也可以定义变量（强烈不推荐）
+
+        定义一个变量的几种形式
+            1.定义不赋值
+            => var 变量名
+            2.同时定义多个变量
+            =>多个变量名中间用逗号分隔
+            3.定义多个变量的时候，可以赋值，可以不赋值
+            =>多个变量名中间用逗号分隔
+        */  
+
+        //当你定义好一个变量以后，你只要使用text这个变量，就表示你在使用这一段文本
+        //1.定义变量
+       var text = 'hello world'
+       //2.覆盖变量
+       var text = 'hello JavaScript'
+       document.write(text)
+
+       //定义一个变量的几种形式:
+       //1.定义不赋值
+       var a
+       console.log(a)
+       //2.同时定义多个变量
+       var b, c, d
+       console.log(b)
+       console.log(c)
+       console.log(d)
+       //3.同时定义多个变量，可以赋值，可以不赋值
+       var e, f = 100, g
+       console.log(e)
+       console.log(f)
+       console.log(g)
+    </script>
+</body>
+</html>

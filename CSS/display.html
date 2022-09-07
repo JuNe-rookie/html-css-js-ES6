@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display</title>
+    <style>
+
+        .box1{
+            width: 200px;
+            border: 2px solid red;
+            margin: auto;
+            display: inline;
+        }
+        .box2{
+            max-width: 200px;
+            border: 2px solid dodgerblue;
+            margin: auto;
+
+        }
+        #inline-block{
+            width: 300px;
+            height: 400px;
+            border: 2px solid black;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">这个200像素这个200像素这个200像素这个200像素</div>
+<div class="box2">这个最大1000像素这个最大1000像素这个最大1000像素这个最大1000像素
+    这个最大1000像素这个最大1000像素这个最大1000像素这个最大1000像素</div>
+<span id="inline-block">这是内联span元素，被加了个block</span>
+<span style="border: 2px dashed pink">这是校验block属性的内联元素span</span>
+</body>
+</html>

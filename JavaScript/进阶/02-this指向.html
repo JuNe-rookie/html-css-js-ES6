@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <button>点击</button> -->
+</body>
+<script>
+  // 在事件中，this指向触发这个事件的DOM
+  // let btn = document.querySelector("button");
+  // btn.onclick = function() {
+  //   console.log(this);
+  // }
+
+
+  // 直接输出this指向全局对象
+  // console.log(this);
+
+  // // 对象cat调用sayName(),所以this指向cat
+  // const cat = {
+  //   name: "喵喵",
+  //   sayName() {
+  //     console.log("我是" + this.name)
+  //   }
+  // }
+  // cat.sayName();
+
+  // 全局函数，this指向window
+  // const fun = function() {
+  //   console.log(this);
+  // };
+  // fun(); // fun() --> window.fun()
+
+  // 构造函数中，this指向new创建的对象
+  function F() {
+    this.name = "小明";
+    console.log(this);
+  };
+
+  let f = new F();
+  console.log(f);
+</script>
+</html>

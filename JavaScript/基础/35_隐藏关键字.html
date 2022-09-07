@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐藏关键字</title>
+    <script>
+        /*
+        * while循环
+        *   indexOf()
+        * */
+        let str = 'sadsahdsanajbfal'
+        while (str.indexOf('s') !== -1){
+            str = str.replace('s','**')
+        }
+        console.log(str)
+
+        /*
+        * split()切开，
+        * join()链接
+      * */
+
+        let str1 = 'sadsahdsanajbfal'
+        let res = str1.split('s').join('**')
+        console.log(res)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

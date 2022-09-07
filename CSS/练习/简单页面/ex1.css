@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+} /*初始化*/
+body,html{
+    scroll-behavior: smooth;
+}
+body{
+    padding: 10px 0;
+    font-family: 微软雅黑, monospace;
+}
+.wrapper{
+    width: 640px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    margin: 0 auto;
+}
+h1{
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    margin: 10px 0 20px; /*上边距10   左右0  下边距20*/
+}
+p{
+    font-size: 14.7px;
+    text-indent: 2em; /*缩进两个字*/
+    margin: 1.5em 0; /*上线边距为1.5字符  左右为10*/
+    line-height: 1.5em;
+}
+h1+p{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    text-indent: 0; /*取消缩进*/
+    font-size: 12px;
+}
+ul{
+    list-style: none; /*取消列表前面的点*/
+    text-indent: 2em;
+    font-size: 12px;
+    color: #ccc;
+}
+ul li{
+    line-height: 2em;
+}
+ul li a{
+    color: #ccc;
+    text-decoration: none;
+}
+ul li a:hover{
+    color: red;
+    text-decoration: underline;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素</title>
+    <style>
+        p::first-letter{
+            font: 30px 黑体;
+            color: red;
+            text-indent: 2em;
+        }
+        p::first-line{
+            text-decoration: underline;
+        }
+        p::before{
+            content: '&';
+        }
+    </style>
+</head>
+<body>
+    <p>
+        伪类允许出现在选择器的任何位置，而一个伪元素只能跟在选择器的最后一个简单选择器后面
+    </p>
+</body>
+</html>

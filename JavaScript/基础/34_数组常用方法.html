@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组常用方法</title>
+    <script>
+        /*
+        * 数组常用方法
+        *   JS自带的一些操作数字的方法
+        *   数组常用方法的格式必须是：数组.xxx()
+        *   数组和伪数组的区别
+        *       length 和 索引都一样，遍历循环都一样，长得也一样
+        *       但是，数组的常用方法，伪数组用不了
+        *
+        * 1，push()
+        *   语法：数组.push(数据1，数据2，...)
+        *   向数组后面插入数据，直接操作原始数组
+        * 2，pop()
+        *   语法：数组.pop()   不用加参数
+        *   删除数组最后一个数据
+        * 3，unshift()
+        *   语法：数组.unshift(数据1，数据2，...)
+        *   向数组前面插入数据，直接操作原始数组
+        * 4，shift()
+        *   语法：数组.shift()
+        *   删除数组第一个数据
+        * */
+        // let arr = [1,2,3]
+        // arr.push(3)
+        // console.log(arr)
+        // arr.pop()
+        // console.log(arr)
+        // arr.unshift('新来的')
+        // console.log(arr)
+        // arr.shift()
+        // console.log(arr)
+
+        /*
+        * 5,reverse()
+        *   语法：数组.reverse()
+        *   作用：反转数组
+        *   直接操作原始数组
+        * */
+        // let arr = [1,2,3]
+        // arr.reverse()
+        // console.log(arr)
+
+        /*
+        * 6，sort()
+        *   语法：
+        *       1，数组.sort()
+        *           按照每一个数据中得每一个数据得ASCII码进行排列
+        *           作用：数组排序
+        *           直接操作原始数组
+        *       2,arr.sort(function(a,b){return a-b})   
+        *           按照大小排，升序排列
+        *       3，arr.sort(function(a,b){return b-a})
+        *           按照大小排序，降序排列
+        * 
+        * */
+
+        // //6.1
+        // let arr = [1,23,44,33,54,67,2]
+        // arr.sort()
+        // console.log(arr)
+        // //6.2
+        // arr.sort(function(a,b){return a - b})
+        // console.log(arr)
+        // //6.3
+        // arr.sort(function(a , b){return b - a})
+        // console.log(arr)
+
+        /*
+        * 7.splice方法
+        * 语法：
+        *   1.数组.splice(从哪开始索引，索引多少个)
+        * */
+
+        //7.1
+        let arr = ['hello', 'world', 1,2,3]
+        console.log(arr.splice(1,2))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

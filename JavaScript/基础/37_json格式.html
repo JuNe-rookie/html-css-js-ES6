@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json格式</title>
+    <script>
+        /*
+        * json是一种固定的字符串格式
+        * 作用：在电脑网络传输的过程中，只能字符串传递，传递不了对象和数组
+        *       如果想传递对象和数组，需要转换成字符串格式传递
+        *       json格式就是满足对象和数组数据格式结构的一种字符串
+        *
+        * 方法：
+        * 1.JSON.parse()
+        *   把json格式的字符串转成成js的数组或者对象
+        * 2.JSON.stringify()
+        *   把js格式的数组或者对象转换成json格式的字符串
+        * */
+
+        let obj = {
+            name: "kla",
+            age: 18,
+            sex: "男"
+        }
+        console.log(obj)
+
+        // 转成json
+        let jsonStr = JSON.stringify(obj)
+        console.log(jsonStr)
+
+        // json转成其他
+        let strJson = JSON.parse(jsonStr)
+        console.log(strJson)
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

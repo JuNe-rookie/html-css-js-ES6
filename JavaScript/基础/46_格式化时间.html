@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>格式化时间</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    1.准备一个数组
+        把汉字准备好
+    2.获取当前时间节点
+    3.把时间对象里面的信息提取出来
+    */
+    let arr = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+    let time = new Date()
+    let year = time.getFullYear()
+    let month = time.getMonth() + 1
+    let day= time.getDate()
+    let hours = time.getHours()
+    let minutes = time.getMinutes()
+    let seconds = time.getSeconds()
+
+
+    function getYear(year){
+        let a = parseInt(year / 1000)
+        let b = parseInt(year % 1000/ 100)
+        let c = parseInt(year % 100/10)
+        let d = year % 10
+
+        return arr[a] + arr[b] + arr[c] + arr[d] +'年'
+    }
+    console.log(getYear(2021))
+
+    function getMonth(month){
+        let a = month % 10
+        let b = month % 10
+
+        return arr[a] + arr[b] + '月'
+    }
+    console.log(getMonth(10))
+
+    console.log(year, month, day, hours, minutes, seconds)
+
+</script>
+</html>

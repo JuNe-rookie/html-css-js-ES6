@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        变量的定义机制
+            一个变量（函数）
+            定义在哪一个作用域里面
+            只能在当前作用域，或者下级作用域里面使用
+            上一级作用域不能使用
+        变量的使用机制
+            当你需要一个变量（函数）
+            首先在自己作用域里面查找，如果有，直接使用
+            如果在自己作用域没有找到，去上一级作用域查找，如果有，使用
+            如果还没找到，在往上走一级
+            直到windows作用域都没有，报错
+
+        */
+
+        //变量使用机制
+        //全局变量a
+        // let a = 100
+        // function fn(){
+        //     //fn私有变量a
+        //
+        //
+        //     //使用a变量
+        //     //先在自己作用域查找
+        //     console.log(a)
+        //     // let a = 200
+        // }
+        //
+        // fn()
+        var a
+        function fn(){
+            function fun(){
+                //给a赋值，自己没有，fn私有作用域也没有
+                a = 200
+            }
+            console.log(a) //自己没有，访问全局变量的a
+            fun()  //这个函数执行完毕，全局a才有内容
+            console.log(a) //自己没有，访问全局的a
+        }
+        console.log('全局a上',a)
+        fn()
+        console.log('全局a下',a)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

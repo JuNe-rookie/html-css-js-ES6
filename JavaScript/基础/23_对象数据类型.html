@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23_对象数据类型.html</title>
+    <script>
+        /*
+        * JS复杂数据类型的一种
+        * 函数：一个盒子，承载一段代码
+        * 对象：一个盒子，承载一堆数据
+        *
+        *
+        * 对象的创建方式
+        *   1.字面量创建
+        *       var o = {}
+        *   2.内置构造函数创建
+        *       var o = new Object()
+        *
+        * 两种创建方式的区别
+        *   1.字面量创建的时候就可以直接添加一些数据
+        *       数据以键值对形式出现
+        *   2.内置构造函数不好直接添加成员变量
+        *       直接创建一个空对象
+        * */
+
+        //1.字面量创建对象
+        var o={}
+        console.log(o)
+        //2、内置构造函数创建对象
+        var a = new Object()
+        console.log(a)
+        //字面创建直接添加成员
+        var b = {
+            100:'hello',
+            fun:function(){
+                console.log('我是fun的函数')
+            }
+        }
+        console.log(b)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

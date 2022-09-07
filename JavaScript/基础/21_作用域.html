@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+    <SCript>
+        /*
+        作用域
+            两种
+                1、全局作用域
+                  打开一个页面就是一个全局作用域
+                  全局作用域叫window
+                2、私有作用域（局部函数作用域）
+                  你的函数写在哪个作用域下，就是谁的子级作用域
+
+            作用域的上下级关系干什么用
+                为了确定变量的使用范围
+                三个机制
+                  1.变量定义机制
+                    有var let  声明式函数
+                  2.变量使用机制
+                    需要拿到某一个变量的值来使用
+                  3.变量赋值机制
+                    一定要有赋值符号
+        */
+
+        function fn(){
+            //这个位置就是fn私有作用域
+
+            function fun(){
+                //这个位置就是fn私有作用域下的fun的私有作用域
+            }
+        }
+    </SCript>
+</head>
+<body>
+    
+</body>
+</html>

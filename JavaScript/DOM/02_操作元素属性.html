@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作元素属性</title>
+</head>
+<body>
+
+<!--元素的属性
+    id  / class / style / src / name / href / ...叫做原生属性
+
+    可以操作的元素属性：
+        原生属性
+        自定义属性
+        H5自定义属性
+
+    操作原生属性：
+       语法：元素.属性名
+        读：元素.属性名
+            获元素该属性的值
+        写：元素.属性名 = '值'
+            设置该元素的该属性的值
+       注意：class除外，操作类名使用 元素.className
+
+    操作自定义属性：
+        语法：
+            1.setAttribute('属性名', '属性值')   自定义属性值
+            2.getAttribute()   获取属性值
+            3.removeAttribute('属性名')   删除属性上的值
+         特点：
+            可以操作自定义属性，也可以操作原生属性
+            不管设置什么数据类型，从标签上拿的时候，都是string类型
+
+
+    H5自定义标签：
+        每一个元素身上有一个属性叫dataset
+        里面包含了所有H5自定义属性
+            key是除了 data- 以外的所有内容
+            value就是这个属性的值
+        操作H5的自定义属性
+            直接在dataset中面进行操作就可以了
+        获取
+            元素.dataset.名字
+                名字：标签上写data-a，使用就是a
+        设置
+            元素.dataset.名字 = '值'
+        删除
+            delete 元素.dataset.名字
+
+
+    -->
+<div class="box" style="color: red" data-a="12">
+    这是一个div标签<img src=""> 
+    <input type="text" id="userfile">
+    <button id="btn">提交</button>
+</div>
+
+
+</body>
+<script>
+
+    // 原生属性
+    let div = document.querySelector('div')
+    console.log(div)
+    div.id = 'box'
+    console.log(div)
+
+    // // 自定义属性
+    let div = document.querySelector('div')
+    div.setAttribute('message', 'hello')
+    console.log(div)
+    let str = div.getAttribute('message')
+    console.log(str)
+    div.removeAttribute('message')
+
+    //H5自定义属性
+    let div = document.querySelector('div')
+    let inp = document.querySelector('input')
+    let img = document.querySelector('img')
+
+    let str = div.dataset.a
+    console.log(str)
+
+    div.dataset.hello = 'word'
+    console.log(div)
+
+
+
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素文本内容</title>
+</head>
+<body>
+    <div>
+        hello word
+        <p>你好世界</p>
+    </div>
+
+    <input type="text" name="" id="">
+</body>
+<script>
+    /*
+    操作元素文本内容
+        三种：
+         1.innnerHTML
+            一个读写属性
+            操作文本的超文本内容
+            读：获取元素内部所有内容
+                文本+标签的全部内容
+                以字符串形式返回
+                语法：元素.innerHTML('标签名')
+            写：设置元素内部的超文本内容
+                完全覆盖式的书写
+                语法：元素.innerHTML = '你要设置的值'
+                当你的字符串里面出现html结构的时候，会自动解析
+         2.innerText
+            一个读写的属性
+            操作元素内部的文本内容
+            读：获取元素内部所有文本内容
+                包括子元素所有后代元素里面的文本内容
+                标签内容不获取
+                语法：元素.innerText('标签名')
+            写：设置元素内部的文本内容
+                完全覆盖式的写入
+                语法：元素.innerText = '你要设置的值'
+                当字符串中出现标签内容的时候，不会自动处理，原样展示
+         3.value
+            一个读写的属性
+            操作表单属性的vlue属性
+            读：获取表单元素的value值
+                语法：元素.value
+            写：设置表单元素的value值
+                语法：元素.value = '你要设置的值'
+    */
+
+   // 获取元素
+   let div = document.querySelector('div')
+
+   let str = div.innerHTML
+   console.log(str)
+   div.innerHTML = '<span>new</span>'
+
+   let inp = document.querySelector('input')
+
+   inp.value = '你好世界'
+   let input = inp.value
+   console.log(input)
+
+
+
+</script>
+</html>

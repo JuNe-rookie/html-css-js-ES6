@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            JS的数据类型
+                JS把一个变量可以存储的各种各样的数据，做了一个区分
+                分成了两个大的类型
+                    1、基本数据类型（简单的数据类型）
+                        Number 数值
+                        String 字符串
+                        Boolean 布尔
+                        Undefined 空
+                        Null 空
+                    2.复杂的数据类型（地址类型数据/引用数据类型）
+                        Object
+                        Function
+        */
+       //Number数值：一切表示十进制的数字；一切浮点数；其他进制的数字:十六进制，以0x开头
+       //控制台输出其他进制的时候会自动转为十进制
+       var n1 = 10
+       var n2 = 20.30
+       console.log(n1)
+       console.log(n2)
+       var n3 = 0xff
+       console.log(n3)
+       //NaN 非数字
+       var n4 = NaN
+       console.log(NaN)
+
+
+       /*
+            在JS里面一切使用引号（双引号，单引号，反引号）包裹的内容都是字符串
+            表示一段文字
+       */
+      var s1 = 'hello'
+      console.log(s1)
+
+    /*
+        在JS里面。布尔值只有两个类型：主要用来做判断
+            true：真
+            False：假
+    */
+   var b1 = true
+   console.log(b1)
+
+   /*
+        Undefined:空
+            这里本该有一个值，但是没有运算或者输出出来，就是Undefined
+        Null:空
+            这里有一个值，这个值就是Null
+   */
+    //Undefined
+    var a
+    console.log(a)
+
+    //Null
+    var b = null
+    console.log(b)
+
+
+    // let g = Math.pow(2,3)
+    // console.log(g)
+
+    // var a = Math.pow(2,3)
+    // console.log(a)
+
+
+    //ES6 let和var区别
+    for(let a=1;a<10;a++){ //a只在for循环里面生效
+        var b=Math.pow(3,2)
+        document.write(a)
+        document.write("</br>")
+        document.write(b)
+        document.write("</br>")
+    }
+    alert(b)
+    alert(a) //undefined
+
+    </script>
+</body>
+</html>

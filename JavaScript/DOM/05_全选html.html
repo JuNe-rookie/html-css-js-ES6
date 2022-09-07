@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 160px;
+            padding: 5px;
+            border: 1px solid #333;
+            margin: 100px auto;
+        }
+        .box > div {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="all">
+            全选: <input type="checkbox">
+        </div>
+        <hr>
+        <div class="items">
+            选项一： <input type="checkbox"> <br>
+            选项二： <input type="checkbox"> <br>
+            选项三： <input type="checkbox"> <br>
+            选项四： <input type="checkbox"> <br>
+        </div>
+    </div>
+
+</body>
+<script>
+    /*
+    全选
+
+    点击全选按钮
+        如果是全部是选中，那么每一个选项按钮也选中
+        如果全选按钮未选中，那么每一个选项按钮都是为选中
+    点击的是每一个按钮
+        如果是所有按钮都是选中，那么全选按钮应该是选中
+        如果不是所有的单独按钮都被选中，那么全选按钮是未选中状态
+    */
+
+    let allBtn = document.querySelector('.all > input')
+    let itemBtns = document.querySelectorAll('.items > input')  // querySelectorAll获取的元素集合可以使用forEach
+
+
+    allBtn.onclick = function(){
+        let type = allBtn.checked
+        // 循环遍历itemBtns 给设置上面的状态
+        // for (let i = 0; i < itemBtns.length; i++) {
+        //     itemBtns[i].checked = type
+        // }
+
+        // forEach
+        itemBtns.forEach(function (item) {item.checked = type})
+    }
+
+    itemBtns.forEach(function (item){
+        item.onclick = function (){
+            // 判断每一个是不是都是选中状态
+            let flag = true
+            itemBtns.forEach(function (item){
+                if(!item.checked) flag = false
+            })
+           allBtn.checked = flag
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>符号</title>
+</head>
+<body>
+    <script>
+        // let strname = "string name"
+        // let symname = Symbol("name")
+        // console.log(typeof(strname))//string
+        // console.log(typeof(symname))//symbol
+        // let o = {x:0}
+        // o.x=2;
+        // console.log(o)
+        // o.y=3;
+        // console.log(o)
+
+        // let a = [1,2,3];
+        // a[0] = 0;
+        // a[3] = 4;
+        // console.log(a)
+
+        // let c = [];
+        // let d = c;
+        // d[0] = 1;
+        // console.log(d===c)
+
+        let a = ["a","b","c"]
+        let b = []
+        for(i = 0;i < a.length;i++){
+            b[i]=a[i]
+        }
+        let c = Array.from(b)
+        console.log(c)
+    </script>
+</body>
+</html>
