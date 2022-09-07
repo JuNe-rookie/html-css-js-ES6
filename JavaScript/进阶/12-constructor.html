@@ -11,5 +11,30 @@
 <body>
 
 </body>
+<script>
+  /**
+   * 每个原型对象里面都有constructor属性（constructor构造函数）
+   *
+   * 作用：该属性指向原型对象的构造函数。
+  */
+
+  function Star() { }
+
+  console.log(Star.prototype)
+
+  // 如果直接这样写成对象，会丢失constructor,导致找不到构造函数
+  Star.prototype = {
+    // 重新指回构造这个原型对象的 构造函数
+    constructor: Star,
+
+    sing: function () {
+      console.log("唱歌");
+    },
+    dance: function () {
+      console.log("唱歌")
+    }
+  }
+  console.log(Star.prototype)
+</script>
 
 </html>
