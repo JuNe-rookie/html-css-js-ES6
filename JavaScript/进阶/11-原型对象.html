@@ -12,7 +12,16 @@
 
 </body>
 <script>
+  /**
+   * 原型是什么？
+   *    一个对象，也称prototype为原型对象
+   * 原型的作用是什么？
+   *    共享方法，可以把不变的方法直接定义在prototype对象上
+   * 构造函数和原型里面的this指向？
+   *    实例化的对象
+  */
   function Person(age, name) {
+    // 公共属性写到构造函数里面
     this.name = name
     this.age = age
     // 公共方法应该写在原型对象上面
@@ -28,8 +37,14 @@
 
   const one = new Person("刘岳", 23)
   one.specialty()
+  const two = new Person("JuNe", 22)
+  two.specialty()
+  // 无论实例化多少，都只调用一个，所以
+  console.log(one.specialty === two.specialty)  // true
 
   // console.dir(Person.prototype)
+
+
 </script>
 
 </html>

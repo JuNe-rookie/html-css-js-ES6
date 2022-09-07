@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * 数组扩展最大值
+  */
+  const arr = [1, 2, 1212]
+  //给Array原型对象加一个求最大值方法
+  Array.prototype.max = function () {
+    return Math.max(...this)
+  }
+
+  console.log(arr.max());
+
+  Array.prototype.min = function () {
+    return Math.min(...this)
+  }
+  console.log(arr.min())
+
+  /**
+   * 数组求和
+  */
+
+</script>
+
+</html>

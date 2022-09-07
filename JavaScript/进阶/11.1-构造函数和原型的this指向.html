@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * 构造函数里面的this，就是实例对象
+   * 原型对象里面的函数this指向的还是实例对象
+  */
+  let showThis
+  let that
+  function Star(name, age) {
+    this.name = name
+    showThis = this
+  }
+  const one = new Star("JuNe")
+  Star.prototype.sing = () => {
+    that = this
+    console.log("鹅鹅鹅")
+  }
+  one.sing()
+  console.log(that === one)
+
+  // console.log(showThis)
+  // console.log(one)
+  // console.log(showThis === one) // true
+</script>
+
+</html>
