@@ -1,0 +1,40 @@
+<html>
+<style>
+  div {
+    border: 1px solid red;
+    height: 100px;
+    width: 100px;
+  }
+</style>
+
+<body>
+  <div></div>
+</body>
+<script>
+  /*
+有完整的DOCTYPE就是标准模式，没有的话就是怪异模式
+  怪异模式下盒模型为IE盒模型
+
+
+ 1、width
+ 标准模式：width设置的是content
+ 怪异模式：width设置的是padding+border+content
+ 2、height设置百分比时
+ 标准模式：元素的高度由其包含内容决定
+ 怪异模式：元素设置百分比会被精确应用
+ 3、行内元素
+ 标准模式：non-replaced inline不可以设置宽高
+ 怪异模式：可以设置宽高
+ 4、图片对于行内元素和table-cell的垂直对齐方式
+ 标准模式：vertical-align默认baseline，所以图片底部会留白
+ 怪异模式：vertical-align默认bottom，图片底部没留白
+ 5、overflow
+ overflow默认设置为visible
+ 标准模式：内容溢出时，元素大小不会变
+ 怪异模式：内容溢出时，会扩展盒子，改变元素大小
+ 6、字体
+ 怪异模式的table中的字体不会继承上层字体属性设置
+*/
+</script>
+
+</html>
