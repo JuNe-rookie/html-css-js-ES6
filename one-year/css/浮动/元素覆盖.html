@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			:root{
+				--divHieght: 200px;
+				--divWidth:200px;
+			}
+			/* div{
+
+			} */
+			.one{
+				background-color: aqua;
+				height: var(--divHieght);
+				width: var(--divWidth);
+			}
+			.two{
+				height: var(--divHieght);
+				/* width: var(--divWidth); */
+				width: 100px;
+				background-color: yellowgreen;
+				float: left;
+			}
+			.three{
+				height: var(--divHieght);
+				width: var(--divWidth);
+				background-color: red;
+			}
+		</style>
+</head>
+<body>
+	<div class="one">this is one </div>
+	<div class="two">this is two </div>
+	<div class="three">this is three</div>
+</body>
+<script>
+	/**
+	 * 元素添加浮动会脱离文本流，所以two会在three上面，但是浮动不会导致脱离文档流。
+	 * 如果块级元素（div）有足够的空间，他们会展示在剩余位置的周围，如果父级元素没有足够的空间，溢流的元素则会展示在下一行
+	*/
+</script>
+</html>
