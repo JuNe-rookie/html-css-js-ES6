@@ -10,6 +10,7 @@
 		body {
 			width: 500px;
 			margin: 0 auto;
+			height: 1200px;
 		}
 
 		p {
@@ -23,11 +24,24 @@
 			background: red;
 			border: 1px solid black;
 		}
-		.positioned{
-			position: relative;
-			top: 30px;
-			right: 100px;
-			background-color: yellows;
+
+		.positioned {
+			position: sticky;
+			background-color: blueviolet;
+			color: aquamarine;
+			top: 90px;
+		}
+
+		h1 {
+			position: fixed;
+			width: 500px;
+			background-color: burlywood;
+			top: 0;
+			margin: 0 auto;
+		}
+
+		p:nth-of-type(1) {
+			margin-top: 80px;
 		}
 	</style>
 </head>
@@ -37,8 +51,7 @@
 
 	<p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
 
-	<p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total
-		width and height is our content + padding + border width/height.</p>
+	<p class="positioned">sticky.</p>
 
 	<p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our
 		margins, not both.</p>
@@ -46,11 +59,17 @@
 	<p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and
 		adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new
 			line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this
-		image will do: <img src="https://mdn.mozillademos.org/files/13360/long.jpg"></p>
+		image will do: </p>
 </body>
 <script>
 	/**
-	 * 
+	 * postiton属性：
+	 *		static: 静态定位，把元素放入它在文档布局流中的正常位置
+	 *		relative: 相对定位，与静态定位非常相似，占据在正常的文档流中，但是可以修改它的最终位置，包括让它与页面上的其他元素重叠，
+									使用：left、right、	top、bottom属性确定位置。
+	 *		absolute: 绝对定位，绝对定位脱离文本流和文档流
+	 *		fixed: 固定定位，是相对于浏览器视口本身。
+	 *		sticky: 允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点为止，此后就变得固定
 	*/
 </script>
 
