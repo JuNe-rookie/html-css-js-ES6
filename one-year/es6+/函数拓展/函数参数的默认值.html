@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数拓展</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /**
+   * ES6允许为函数的参数设置默认值，直接卸载参数定义后面即可
+  */
+
+  function log(x, y = 'world') {
+    console.log(x, y)
+  }
+  // log("hello") // hello world
+  // log("hello", "js") // hello js
+
+  // 参数默认值是不传值的，每次调用函数，都会从新以默认值计算。
+  let x = 99
+  function foo(p = x + 1) {
+    console.log(p);
+  }
+  // foo() // 100
+  x = 200
+  // foo() // 201
+
+
+  // 函数指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数
+  // console.log((function (a, b, c = 21) { }).length);  // 2 因为参数c指定了默认值，所以length = 3-1
+
+
+  /**
+   * ES6引入了rest参数（形式为...变量名），用于获取函数的多余参数，这样就不需要使用arguments对象。
+  */
+  function add(...values) {
+    let sum = 0
+
+    for (const val of values) {
+      sum += val
+    }
+
+    return sum
+  }
+
+  // console.log(add(1,3,4)); 
+
+
+  // rest参数可以代替arguments变量：
+  const sortNum = (...numbers) => numbers.sort()
+  // console.log(sortNum("a", "c", "b")); // ['a', 'b', 'c']
+
+  /**
+   * reset参数只能是最后一个参数
+  */
+
+  /**
+   * name属性
+  */
+ const fun = function foo(){}
+ // console.log(fun.name) // foo
+
+ /**
+  * 箭头函数和普通函数的区别
+  *   this指向不同：箭头函数没有自己的this，指向引用外层的this。因为箭头函数没有自己的this，所以也就不能去使用call()、apply()、bind()这些方法去改变this的指向
+  *   箭头函数不能做构造函数
+  *   不能使用arguments对象
+  *   不能使用yield命令
+ */
+function foo() {
+  setTimeout(() => {
+    console.log("id", this.id);
+  }, 1000)
+}
+let id = 21
+foo.call({id: 53})
+
+/**
+ * babel把箭头函数转成ES5是如下代码：
+ * 可以很容易的看出来this指向
+*/
+// ES6 
+function foo() {
+  setTimeout(() => {
+    console.log("id", this.id);
+  }, 1000)
+}
+// ES5
+function foo() {
+  let _this = this
+  setTimeout(() => {
+    console.log("id", _this.id);
+  }, 1000)
+}
+
+
+</script>
+
+</html>
