@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的扩展</title>
+</head>
+
+<body>
+<p></p>
+<p></p>
+<p></p>
+</body>
+<script>
+/**
+ * 扩展运算符
+ *    语法：... 
+ *    作用：将一个数组转为用逗号分隔的参数序列
+*/
+const add = (x, y) => {
+  return x + y
+}
+let arr = [1,2]
+// console.log(add(...arr))
+
+
+/**
+ * Array.form()
+ * 将两类对象转为真正的数组：
+ *    1.类似数组的对象
+ *    2.可遍历的对象，包括ES6新增的Set和Map
+*/
+// 类似数组的对象：一个对象所有的key都是正整数或者0，并且具有length属性，这个对象就称为“类似数组对象”
+let arraylike = {
+  0:"a",
+  1:"b",
+  2:"c",
+  length:3,
+}
+let arr1 = Array.from(arraylike)
+// console.log(arr1); //  ['a', 'b', 'c']
+// DOM操作返回的NodeList集合例子
+let ps = document.querySelectorAll('p')
+// console.log(Array.from(ps));  
+
+
+// map()方法：方法创建一个新数组，这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成
+const array1 = [1,2,3,4]
+const newArray = array1.map(x => x*x)
+// console.log(newArray); //[1, 4, 9, 16]
+// Array.from()可以接收一个函数作为第二个参数，作用类似于数组的map()方法
+// console.log(Array.from(array1, x => x*x));  //[1, 4, 9, 16]
+
+/**
+ * Array.of()
+ * 将一组值转化为数组
+*/
+let newArray1 = Array.of(1,2,34)
+// console.log(newArray1); //  [1, 2, 34]
+
+/**
+ * 实例方法：copyWithin()
+ * 作用：在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组
+ * 接收三个参数：
+ *    target（必需）：从该位置开始替换数据。如果为负值，表示倒数。
+ *    start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示从末尾开始计算。
+ *    end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示从末尾开始计算。
+*/
+const copyWithinArray = [1,2,3,4,5].copyWithin(1,3) // -->从下标1开始到数组结束的成员（4,5），复制到从索引1开始的位置，覆盖了原来的2和3
+// console.log(copyWithinArray);  //[1, 4, 5, 4, 5]
+
+/**
+ * find()：用于找出第一个符合条件的数组成员，参数是一个回调函数，如果找到了返回该成员，没有符合条件的返回undefined
+*/
+let findArr = [1,2,3,45].find(x => x > 10)
+// console.log(findArr); // 45
+
+/**
+ * findIndex()：返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1
+*/
+let findIndexArr = [1,2,3,45].findIndex(x => x > 45)
+// console.log(findIndexArr); // -1
+
+// find()和findIndex()都可以接受第二个参数，用来绑定回调函数的this对象
+function f(v) {
+  return v > this.age
+}
+let person = {name:"abc", age:"20"}
+let res = [10,12,23].findIndex(f, person)
+// console.log(res); // 2
+
+/**
+ * findLast()和findLastIndex()：与find()和findIndex()用法一致，只是从数组最后一位向前索引
+*/
+let findLastIndexArr = [1,2,3,4,5,6,7].findLastIndex(x => x > 6)
+// console.log(findLastIndexArr); // 5
+
+/**
+ * fill()：使用给定值，填充满一个数组
+ * 可以接受第二三个参数，用于指定填充的起始位置
+*/
+let fillArr = [1,3,4,5].fill("哈", 1, 2) // 从索引1开始填充，在索引2之前停止
+// console.log(fillArr);  // [1, '哈', 4, 5]
+
+/**
+ * 
+*/
+
+</script>
+
+</html>
