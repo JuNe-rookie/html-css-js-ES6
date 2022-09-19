@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运算符的扩展</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /**
+   * 指数运算符：**
+   * 指数运算符从右边开始
+  */
+ let res = 2**3**2 // =>2**(3**2)
+ // console.log(res); // 512
+
+ /**
+  * 链式判断运算符：?.
+  * 直接在链式调用的时候判断，左侧的对象是否为null或undefined。如果是的，就不再往下运算，而是返回undefined。
+  * 
+  * 链判断运算符?.有三种写法：
+  *   obj?.prop // 对象属性是否存在
+  *   obj?.[expr] // 同上
+  *   func?.(...args) // 函数或对象方法是否存在
+ */
+let obj = {
+  a: 1,
+  b: 2
+}
+// console.log(obj?.a); // 1
+// console.log(obj?.c); // undefined
+
+/**
+ * Null判断运算符：??
+ * 只有左侧为null或者undefined的时候才会返回右侧的值
+*/
+let a = null ?? "哈哈"
+// console.log(a); // 哈哈
+
+</script>
+</html>
