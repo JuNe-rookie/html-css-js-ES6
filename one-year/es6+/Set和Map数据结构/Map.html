@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const m = new Map()
+  const o = {
+    name: "haha"
+  }
+  m.set(o, "啊？")
+  // console.log(m.get(o));
+  // console.log(m.has(o));
+  // console.log(m.delete(o));
+  // console.log(m.has(o));
+
+  // 如果读取一个未知的键，则返回undefined。
+  let und = new Map().get("123")
+  // console.log(und); // undefined
+
+  // *注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。
+  const map = new Map()
+  map.set(["a"], 555)
+  let get = map.get(["a"])
+  // console.log(get);  // undefined
+  //上面代码的set和get方法，表面是针对同一个键，但实际上这是两个不同的数组实例，内存地址是不一样的，因此get方法无法读取该键，返回undefined。
+
+</script>
+</html>

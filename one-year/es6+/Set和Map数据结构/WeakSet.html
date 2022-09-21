@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakSet</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /**
+   * WeakSet与Set类似，也是不重复的集合，但是WeakSet和Set有两个区别
+   *    WeakSet只能是对象，不能是其他类型的值
+   *	WeakSet中的对象都是弱引用，即垃圾回收机制不考虑WeakSet对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中
+  */
+ const ws = new WeakSet()
+ // let ws1 = ws.add(1)
+ // console.log(ws1) // WeakSet.html:7 Uncaught TypeError: Invalid value used in weak set
+ // let wsSymbol = ws.add(Symbol()) 
+ // console.log(wsSymbol) // WeakSet.html:7 Uncaught TypeError: Invalid value used in weak set
+ 
+ /**
+  * WeakSet 是一个构造函数，可以使用new命令，创建 WeakSet 数据结构。
+ */
+const a = [[1,23], [2,3]]
+let wea = new WeakSet(a)
+// console.log(wea);  // WeakSet {[1, 23], [2, 3]}
+// 上面代码中，a是一个数组，他有两个成员对象，也都是数组，将a作为WeakSet构造函数的参数，a的成员会自动称为WeakSet的成员
+// *注意，是a数组的成员成为 WeakSet 的成员，而不是a数组本身。这意味着，数组的成员只能是对象。
+const b = [1,3]
+// const ws1 = new WeakSet(b)  // Uncaught TypeError: Invalid value used in weak set
+// 上面代码 b 的成员不是对象，加入WeakSet就会报错
+</script>
+</html>
