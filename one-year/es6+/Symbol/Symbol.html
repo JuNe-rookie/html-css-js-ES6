@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Symbol</title>
+</head>
+
+<body>
+	<script>
+		/**
+		 * Symbol：表示独一无二的值
+		 * Symbol用symbol()生成
+		*/
+		let s = Symbol("123")
+		// console.log(typeof s); // symbol
+		// console.log(s);  // Symbol(123)
+
+		/**
+		 * 如果Symbol的参数是一个对象，就会调用该对象的toString()方法，将其转为字符转，然后生成一个Symbol值。
+		*/
+		const obj = {
+			toString() {
+				return 'abc'
+			}
+		}
+		const sym = Symbol(obj)
+		// console.log(sym);  // Symbol(abc)
+
+		/**
+		 * Symbol值不能与其他值进行计算，会报错
+		*/
+		let a = Symbol(1)
+		let b = 2
+		// console.log(a + b);  // Symbol.html:35 Uncaught TypeError: Cannot convert a Symbol value to a number
+		// 但是Symbol可以显式的转化为字符串
+		let sym2 = Symbol("My symbol")
+ 		// console.log(String(sym2));  // Symbol(My symbol)
+ 		// console.log(sym2.toString());  // Symbol(My symbol)
+ 		// Symbol可以转为布尔值，但是不能转为数值：0，1
+		let sym3 = Symbol()
+		// console.log(Boolean(sym3));	// true
+		// console.log(!sym3); // false 
+
+		/**
+		 * Symbol.prototype.description
+		 * ES2019提供了一个Symbol值的实例属性description，用于直接返回Symbol的描述值。
+		*/
+		const sym4 = Symbol("foo")
+		// console.log(sym4.description); // foo
+
+
+		/**
+		 * 作为属性名的Symbol
+		 * 由于每一个 Symbol 值都是不相等的，这意味着只要 Symbol 值作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。
+		*/
+		let mySym = Symbol()
+		// 1
+		let ac = {}
+		a[mySym] = 'hello'
+		// 2
+		let ab = {
+			[mySym]: 'hello'
+		}
+		// 3
+		let ah = {}
+		Object.defineProperty(ah, mySym, {value: 'hello'})
+		// 以上结果都一样
+		// 注意Symbol作为属性值的时候，不能使用点（.）运算符
+		const mySymbol = Symbol()
+		const d = {}
+		d.mySymbol = "hello"
+		// console.log(d[mySymbol]);  // undefined
+		// console.log(d['mySymbol']);  // hello
+
+		/**
+		 * 在对象内部使用Symbol定义属性时，Symbol必须放在方括号内
+		*/
+		let ha = Symbol()
+		let object = {
+			[ha]: function(){
+				
+			}
+		}
+		
+		/**
+		 * Symbol值作为属性名，遍历对象的时候，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。
+		 * 但是他也不是私有属性，Object.getOwnPropertySymbols()可以获取指定对象的所有Symbol属性名，返回一个数组
+		*/
+		const obj1 = {}
+		let son1 = Symbol("son1")
+		let son2 = Symbol("son2")
+		obj1[son1] = "hello"
+		obj1[son2] = "world"
+		let objSymbol = Object.getOwnPropertySymbols(obj1)
+		// console.log(objSymbol); // [Symbol(son1), Symbol(son2)]
+
+	</script>
+</body>
+
+</html>
