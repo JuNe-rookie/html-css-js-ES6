@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proxy</title>
+</head>
+
+<body>
+
+</body>
+<script>
+	/**
+	 * Proxy可以理解为，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先经过这层拦截。
+	 * 
+	 * 语法：
+	 *    let proxy = new Proxy(target, handler)
+	 * target表示所要拦截的目标对象。
+	 * handler参数也是一个对象，用来定制行为。
+	*/
+	let proxy = new Proxy({}, {
+		get(target, propKey) {  // get方法两个参数分别是目标对象和所要访问的属性。
+			return 24
+		}
+	})
+	// console.log(proxy.name) // 24
+
+	/**
+	 * 注意：要使Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象进行操作）
+	*/
+
+	/**
+	 * 如果handler没有进行任何拦截，那就等同于直接通向原对象。
+	*/
+	let target = {}
+	let handler = {}
+	let proxy1 = new Proxy(target, handler)
+	proxy1.name = "哈哈"
+	// console.log(target.name);  // 哈哈
+	// 上面代码hanlder是一个空对象，没有任何拦截效果，访问proxy就相当于访问target
+
+	/**
+	 * Proxy实例也可以当其他对象的原型对象
+	*/
+	let proxyObj = new Proxy({}, {
+		get(target, propKey) {
+			return 24
+		}
+	})
+	let obj = Object.create(proxyObj)
+	// console.log(obj.time);  // 24
+	// 上面代码中，proxyObj对象作为ojb的对象原型，obj本身并没有time属性，所以根据原型链会在proxyObj对象上读取该属性，导致被拦截
+
+	/**
+	 * 同一个拦截函数，可以设置拦截多个操作
+	*/
+	let handler1 = {
+		get: function (target, name) {
+			if (name === 'prototype') {
+				return Object.prototype;
+			}
+			return 'Hello,' + name;
+		},
+
+		apply: function (target, thisBinding, args) {
+			return args[0];
+		},
+
+		construct: function (target, args) {
+			return { value: args[1] };
+		}
+	};
+
+	let fproxy = new Proxy(function (x, y) {
+		return x + y;
+	}, handler1);
+	// console.log(fproxy(1,2)); // 1
+	let nFproxy = new fproxy(1,2)
+	// console.log(nFproxy); // {value: 2}
+	// console.log(fproxy.prototype === Object.prototype);  // true
+	// console.log(fproxy.foo === "Hello,foo");  // true
+</script>
+
+</html>

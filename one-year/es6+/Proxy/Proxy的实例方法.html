@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proxy的实例方法</title>
+</head>
+
+<body>
+
+</body>
+<script>
+	/**
+	 * get()方法用于拦截某个属性的读取操作，可以接受三个参数，依次为：目标对象，属性名和proxy实例本身（严格地说，是操作行为所针对的对象），最后一个参数（proxy实例本身）可选
+	 */
+	let person = {
+		name: '张三'
+	}
+	let proxy = new Proxy(person, {
+		get: function (target, propKey) {
+			if (propKey in target) {
+				return target[propKey]
+			} else {  // 如果不存在该属性，抛出异常
+				throw new ReferenceError("Prop name \"" + propKey + "\" does not exist.")
+			}
+		}
+	})
+	// console.log(proxy.name);  // 张三
+	// console.log(proxy.age);  // Uncaught ReferenceError: Prop name "age" does not exist
+	// 上面代码表示，如果访问目标对象不存在的属性，会抛出一个错误。如果没有这个拦截函数，访问不存在的属性，只会返回undefined
+
+	/**
+	 * get方法可以继承
+	 */
+	let proto = new Proxy({}, {
+		get(target, propertyKey, receiver) {
+			// console.log('GET ' + propertyKey);
+			return target[propertyKey];
+		}
+	})
+	let obj = Object.create(proto)
+	// console.log(obj.foo);
+
+	/**
+	 * set()方法方法用来拦截某个属性的赋值操作，可以接受四个参数，依次为目标对象、属性名、属性值和Proxy实例本身，最后一个参数可选
+	 */
+	// 假定Person对象有一个age属性，该属性应该是一个不大于 200 的整数，那么可以使用Proxy保证age的属性值符合要求。
+	let validator = {
+		set(obj, prop, value) {
+			if (prop === "age") {
+				if (!Number.isInteger(value)) {
+					throw new TypeError('age 输入的不是整数')
+				}
+				if (value > 200) {
+					throw new RangeError('age大于200')
+				}
+			}
+
+			// 满足条件的age属性以及其他属性，直接保存
+			obj[prop] = value
+			// return true
+		}
+	}
+	let person1 = new Proxy({}, validator)
+	person1.age = 100
+	// console.log(person1.age);
+	// person1.age = 'young'
+	// console.log(person1.age); // 报错  age 输入的不是整数
+	// person1.age = 300
+	// console.log(person1.age); // 报错  age大于200
+
+
+	/**
+	 * apply()方法拦截函数的调用，call和apply操作
+	 * 可以接受三个参数，分别是：
+	 * 		目标对象
+	 * 		目标对象的上下文对象（this）
+	 * 		目标对象的参数数组
+	 */
+	let target = () => "i am the target"
+	let handler = {
+		appley: function () {
+			return 'i am the handler'
+		}
+	}
+	let p = new Proxy(target, handler)
+
+	// console.log(p());  // i am the target
+
+	/**
+	 * has():用来拦截HasProperty操作，即判断某个对象是否有某个属性时，这个方法会生效。
+	 * 		典型的就是in运算符
+	 *
+	 * 接受两个参数:
+	 * 		目标对象
+	 * 		需要查询的属性名
+	 */
+	let handler1 = {
+		has(target, key) {
+			if (key[0] === '_') {
+				return false
+			}
+			return key in target
+		}
+	}
+	let target1 = { _prop: "foo", prop: "foo" }
+	let proxy1 = new Proxy(target, handler1)
+	// console.log('_prop' in proxy1);  // false 
+
+	/**
+	 * has 操作不判断一个对象是自身属性还是继承得来的属性
+	*/
+
+	/**
+	 * 虽然 for...in 也用到了in运算符 但是has拦截对for...in 不生效 
+	*/
+	let stu1 = { name: '张三', score: 59 };
+	let stu2 = { name: '李四', score: 99 };
+
+	let handler2 = {
+		has(target, prop) {
+			if (prop === 'score' && target[prop] < 60) {
+				console.log(`${target.name} 不及格`);
+				return false;
+			}
+			return prop in target;
+		}
+	}
+
+	let oproxy1 = new Proxy(stu1, handler2);
+	let oproxy2 = new Proxy(stu2, handler2);
+	// console.log('score' in oproxy1);  // 张三  不及格   false
+	// console.log('score' in oproxy2);  // true
+	for (const a in oproxy1) {
+		// console.log(oproxy1[a]);
+	}  // 张三   59
+	for (const b in oproxy2) {
+		// console.log(oproxy2[b]);
+	}  // 李四  99
+	// 上面代码中，has()只对in运算符生效，对for...in循环不生效。
+
+	/**
+	 * construct()用于拦截new命令
+	 * 接收三个参数
+	 * 		target：目标对象
+	 * 		args：构造函数的参数数组
+	 * 		newTarget：创造实例对象时，new命令作用的构造函数
+	*/
+</script>
+
+</html>
