@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生成器函数的参数</title>
+</head>
+<body>
+  <script>
+    /**
+     * yield表达式本身没有返回值，或者说总是返回undefined。next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值。
+    */
+   function *gen(arg) {
+    console.log(arg);
+    let res1 =  yield '111'
+    console.log(res1);
+    let res2 = yield '222'
+    console.log(res2);
+    yield '333'
+   }
+   let iterator = gen("aaa")
+   console.log(iterator.next());  // {value: '1', done: false}
+   console.log(iterator.next('bbb'));
+   console.log(iterator.next('ccc'));
+   console.log(iterator.next());
+
+   </script>
+  
+</body>
+</html>
