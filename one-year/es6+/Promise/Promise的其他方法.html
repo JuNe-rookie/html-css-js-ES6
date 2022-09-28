@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise的其他方法</title>
+</head>
+<body>
+  <script>
+    /**
+     * resolve()  将现有对象转换为Promise对象
+    */
+   let foo = Promise.resolve("foo")  // 等价于   let foo = new Promise(resolve => resolve('foo'))
+   // console.log(foo);  // Promise {<fulfilled>: 'foo'}
+
+    /**
+     * reject()  将现有对象转换为Promise对象，返回的实例的状态是rejected
+    */
+   let fooo = Promise.reject("fooo")
+   // console.log(fooo);  // Promise {<fulfilled>: 'foo'}
+
+    /**
+     * all()  用于将多个 Promise 实例，包装成一个新的 Promise 实例。
+    */
+   let one = new Promise((resolve, reject) => {})
+   let two = new Promise((resolve, reject) => {})
+   let three = new Promise((resolve, reject) => {})
+
+   let four = Promise.all([one, two, three])
+   four.then(() => {
+    // 全部成功，才成功
+   }).catch((err) => {
+    // 有一个失败就失败
+   })
+
+   /**
+    * race()  同样是将多个 Promise 实例，包装成一个新的 Promise 实例。
+    * 某个异步操作请求设置超时，并且在超时后执行相应的操作
+   */
+  const pro = Promise.race([
+    fetch('/resource-that-may-take-a-while'),
+    new Promise(function (resolve, reject){
+      setTimeout(() => reject(new Error('request timeout')), 5000)
+    })
+  ])
+  // pro.then(console.log()).catch(console.error)  // 上面代码中，如果 5 秒之内fetch方法无法返回结果，变量p的状态就会变为rejected，从而触发catch方法指定的回调函数。
+  </script>
+</body>
+</html>
